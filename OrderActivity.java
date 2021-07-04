@@ -94,7 +94,7 @@ public class OrderActivity extends AppCompatActivity {
             String namawisata = intentambildata.getStringExtra("nama_wisata");
             String tempatwisata = intentambildata.getStringExtra("tempat_wisata");
             String keteranganwisata = intentambildata.getStringExtra("keterangan_wisata");
-           // String Image_url ="http://192.168.52.105:1337";
+           // String Image_url ="http://192";
             Glide.with(this)
                     .load(gambarwisata)
                     .placeholder(R.drawable.gradient1)
@@ -200,7 +200,7 @@ public class OrderActivity extends AppCompatActivity {
                 ordermap.put("alamat_email",getemail);
 
 
-                    DocumentReference documentReference = firebaseFirestore.collection("order").document(uid+getIntent().getStringExtra("id_wisata"));
+                    DocumentReference documentReference = firebaseFirestore.collection("order").document(a);
                         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
