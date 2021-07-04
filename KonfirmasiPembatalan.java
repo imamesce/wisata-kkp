@@ -92,7 +92,7 @@ public class KonfirmasiPembatalan extends AppCompatActivity {
                 orderajukan.put("tempat_wisata",getIntent().getStringExtra("tempat_wisata"));
 
 
-                DocumentReference documentReference = firebaseFirestore.collection("order").document("pembatalanorder"+uid+getIntent().getStringExtra("id_wisata"));
+                DocumentReference documentReference = firebaseFirestore.collection("order").document("pembatalanorder");
                 documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -105,7 +105,7 @@ public class KonfirmasiPembatalan extends AppCompatActivity {
 
 
                             }else {
-                                firebaseFirestore.collection("pembatalan_order").document(uid+getIntent().getStringExtra("id_wisata")).set(orderajukan).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                firebaseFirestore.collection("pembatalan_order").document(u).set(orderajukan).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         Toast.makeText(KonfirmasiPembatalan.this, "Silahkan tunggu", Toast.LENGTH_LONG).show();
@@ -120,7 +120,7 @@ public class KonfirmasiPembatalan extends AppCompatActivity {
                                         user.put("keterangan","mengajukan pembatalan");
                                         user.put("keterangan_pembatalan","sedang diproses");
 
-                                        firebaseFirestore.collection("order").document(uid+getIntent().getStringExtra("id_wisata")).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        firebaseFirestore.collection("order").document(uid+getIntent().getStringExtra("id_wisata")).set(user.addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
 
