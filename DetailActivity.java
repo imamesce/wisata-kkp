@@ -85,7 +85,7 @@ private TextView keteranganwisata,deskripsiwisata,tempat,namaWisata,tanggalberan
                     .load(gambar)
                     .placeholder(R.drawable.gradient1)
                     .into(imagedetail);
-          //  String Image_url ="http://192.168.52.105:1337";
+          //  String Image_url ="http://192";
            // Glide.with(this)
              //       .load(Image_url+gambar)
                //     .placeholder(R.drawable.gradient1)
